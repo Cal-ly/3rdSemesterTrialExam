@@ -120,7 +120,8 @@ public class WoodPelletRepositoryTest
     }
 
     [TestMethod("Delete Not Found")]
-    public void Delete_ShouldReturnNull_WhenNotFound()
+    [ExpectedException(typeof(ArgumentException))]
+    public void Delete_ShouldThrowException_WhenNotFound()
     {
         // Arrange
         var repository = new WoodPelletRepository();
@@ -129,6 +130,6 @@ public class WoodPelletRepositoryTest
         var result = repository.Delete(1);
 
         // Assert
-        Assert.IsNull(result);
+        // Is handled by ExpectedException
     }
 }

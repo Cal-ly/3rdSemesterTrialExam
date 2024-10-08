@@ -14,11 +14,11 @@ public class WoodPelletController : ControllerBase
 
         var tempList = new List<WoodPellet>
         {
-            new WoodPellet { Id = 1, Brand = "BrandA", Price = 10.99m, Quantity = 3 },
-            new WoodPellet { Id = 2, Brand = "BrandB", Price = 12.99m, Quantity = 2 },
-            new WoodPellet { Id = 3, Brand = "BrandC", Price = 9.99m, Quantity = 4 },
-            new WoodPellet { Id = 4, Brand = "BrandD", Price = 11.99m, Quantity = 1 },
-            new WoodPellet { Id = 5, Brand = "BrandE", Price = 13.99m, Quantity = 5 }
+            new WoodPellet { Id = 1, Brand = "BrandA", Price = 99.95m, Quantity = 3 },
+            new WoodPellet { Id = 2, Brand = "BrandB", Price = 129.95m, Quantity = 2 },
+            new WoodPellet { Id = 3, Brand = "BrandC", Price = 99.95m, Quantity = 4 },
+            new WoodPellet { Id = 4, Brand = "BrandD", Price = 119.95m, Quantity = 1 },
+            new WoodPellet { Id = 5, Brand = "BrandE", Price = 139.95m, Quantity = 5 }
         };
 
         foreach (var woodPellet in tempList)

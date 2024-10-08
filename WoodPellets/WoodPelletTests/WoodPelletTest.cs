@@ -103,6 +103,9 @@ public class WoodPelletTest
         // Assert is handled by ExpectedException
     }
 
+
+
+
     /// <summary>
     /// Tests that ValidateQuantity throws an ArgumentException when Quantity is out of range.
     /// </summary>
@@ -120,22 +123,40 @@ public class WoodPelletTest
         // Assert is handled by ExpectedException
     }
 
-    ///// <summary>
-    ///// Tests that ToString returns the correct string representation.
-    ///// </summary>
-    //[TestMethod("ToString Representation")]
-    //public void ToString_ShouldReturnCorrectStringRepresentation()
-    //{
-    //    // Arrange
-    //    var woodPellet = CreateValidWoodPellet();
-    //    var expected = "WoodPellet [Id=1, Brand=TestBrand, Price=10.0, Quantity=3]";
+    /// <summary>
+    /// Tests the border values for ValidateQuantity within range.
+    /// </summary>
+    [DataTestMethod]
+    [DataRow(1)]
+    [DataRow(5)]
+    public void ValidateQuantity_ShouldNotThrowException_WhenQuantityIsWithinRange(int quantity)
+    {
+        // Arrange
+        var woodPellet = CreateValidWoodPellet();
+        woodPellet.Quantity = quantity;
 
-    //    // Act
-    //    var result = woodPellet.ToString();
+        // Act & Assert
+        woodPellet.ValidateQuantity();
+    }
 
-    //    // Assert
-    //    Assert.AreEqual(expected, result);
-    //}
+    /// <summary>
+    /// Tests the border values for ValidateQuantity outside range.
+    /// </summary>
+    [DataTestMethod]
+    [DataRow(0)]
+    [DataRow(6)]
+    [ExpectedException(typeof(ArgumentException))]
+    public void ValidateQuantity_ShouldThrowException_WhenQuantityIsOutsideRange(int quantity)
+    {
+        // Arrange
+        var woodPellet = CreateValidWoodPellet();
+        woodPellet.Quantity = quantity;
+
+        // Act
+        woodPellet.ValidateQuantity();
+
+        // Assert is handled by ExpectedException
+    }
 
     /// <summary>
     /// Tests that Equals returns true when objects are equal.
