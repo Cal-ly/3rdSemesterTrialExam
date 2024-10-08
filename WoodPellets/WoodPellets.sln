@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoodPelletsLib", "WoodPelle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoodPelletTests", "WoodPelletTests\WoodPelletTests.csproj", "{CEF8BD49-3389-4901-8BF3-6B8DD03DE789}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTWoodPellets", "RESTWoodPellets\RESTWoodPellets.csproj", "{697E0E33-50A6-4417-9B30-C108BCAEEB42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CEF8BD49-3389-4901-8BF3-6B8DD03DE789}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEF8BD49-3389-4901-8BF3-6B8DD03DE789}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEF8BD49-3389-4901-8BF3-6B8DD03DE789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697E0E33-50A6-4417-9B30-C108BCAEEB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697E0E33-50A6-4417-9B30-C108BCAEEB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697E0E33-50A6-4417-9B30-C108BCAEEB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697E0E33-50A6-4417-9B30-C108BCAEEB42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

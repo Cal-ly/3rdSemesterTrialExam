@@ -1,0 +1,6 @@
+@RESTWoodPellets_HostAddress = http://localhost:5140
+
+GET {{RESTWoodPellets_HostAddress}}/woodpellet/
+Accept: application/json
+
+###

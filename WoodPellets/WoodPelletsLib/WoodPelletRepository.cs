@@ -2,8 +2,9 @@
 
 public class WoodPelletRepository
 {
-    private readonly List<WoodPellet> _woodPellets = new();
-    private int _nextId = 1;
+    private readonly List<WoodPellet> _woodPellets = [];
+
+    public int NextId => FindNextId();
 
     /// <summary>
     /// Gets all wood pellets.
@@ -31,12 +32,9 @@ public class WoodPelletRepository
     /// <returns>The added wood pellet.</returns>
     public WoodPellet Add(WoodPellet woodPellet)
     {
-        if (woodPellet == null)
-        {
-            throw new ArgumentNullException(nameof(woodPellet));
-        }
+        ArgumentNullException.ThrowIfNull(woodPellet);
 
-        woodPellet.Id = _nextId++;
+        woodPellet.Id = NextId;
         woodPellet.Validate();
         _woodPellets.Add(woodPellet);
         return woodPellet;
@@ -49,17 +47,9 @@ public class WoodPelletRepository
     /// <returns>The updated wood pellet.</returns>
     public WoodPellet Update(WoodPellet woodPellet)
     {
-        if (woodPellet == null)
-        {
-            throw new ArgumentNullException(nameof(woodPellet));
-        }
+        ArgumentNullException.ThrowIfNull(woodPellet);
 
-        var existing = GetById(woodPellet.Id);
-        if (existing == null)
-        {
-            throw new ArgumentException("Wood pellet not found.");
-        }
-
+        var existing = GetById(woodPellet.Id) ?? throw new ArgumentException("Wood pellet not found.");
         woodPellet.Validate();
         existing.Brand = woodPellet.Brand;
         existing.Price = woodPellet.Price;
@@ -74,11 +64,21 @@ public class WoodPelletRepository
     /// <returns>The deleted wood pellet, or null if not found.</returns>
     public WoodPellet? Delete(int id)
     {
-        var woodPellet = GetById(id);
+        var woodPellet = GetById(id) ?? throw new ArgumentException("Wood pellet not found.");
         if (woodPellet != null)
         {
             _woodPellets.Remove(woodPellet);
         }
         return woodPellet;
+    }
+
+
+    /// <summary>
+    /// Calculates the next available Id for a new wood pellet.
+    /// </summary>
+    /// <returns>The next available Id integer</returns>
+    private int FindNextId()
+    {
+        return _woodPellets.Count == 0 ? 1 : _woodPellets.Max(wp => wp.Id) + 1;
     }
 }
