@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WoodPelletsLib;
 
 namespace RESTWoodPellets.Controllers;
 [Route("api/[controller]")]
@@ -12,19 +11,11 @@ public class WoodPelletController : ControllerBase
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
 
-        var tempList = new List<WoodPellet>
-        {
-            new WoodPellet { Id = 1, Brand = "BrandA", Price = 99.95m, Quantity = 3 },
-            new WoodPellet { Id = 2, Brand = "BrandB", Price = 129.95m, Quantity = 2 },
-            new WoodPellet { Id = 3, Brand = "BrandC", Price = 99.95m, Quantity = 4 },
-            new WoodPellet { Id = 4, Brand = "BrandD", Price = 119.95m, Quantity = 1 },
-            new WoodPellet { Id = 5, Brand = "BrandE", Price = 139.95m, Quantity = 5 }
-        };
-
-        foreach (var woodPellet in tempList)
-        {
-            _repository.Add(woodPellet);
-        }
+        //_repository.Add(new WoodPellet { Brand = "BrandA", Price = 99.95m, Quantity = 3 });
+        //_repository.Add(new WoodPellet { Brand = "BrandB", Price = 129.95m, Quantity = 2 });
+        //_repository.Add(new WoodPellet { Brand = "BrandC", Price = 99.95m, Quantity = 4 });
+        //_repository.Add(new WoodPellet { Brand = "BrandD", Price = 119.95m, Quantity = 1 });
+        //_repository.Add(new WoodPellet { Brand = "BrandE", Price = 139.95m, Quantity = 5 });
     }
 
     // GET: api/<WoodPelletController>
