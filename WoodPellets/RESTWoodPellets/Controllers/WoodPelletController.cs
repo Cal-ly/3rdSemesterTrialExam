@@ -11,11 +11,11 @@ public class WoodPelletController : ControllerBase
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
 
-        //_repository.Add(new WoodPellet { Brand = "BrandA", Price = 99.95m, Quantity = 3 });
-        //_repository.Add(new WoodPellet { Brand = "BrandB", Price = 129.95m, Quantity = 2 });
-        //_repository.Add(new WoodPellet { Brand = "BrandC", Price = 99.95m, Quantity = 4 });
-        //_repository.Add(new WoodPellet { Brand = "BrandD", Price = 119.95m, Quantity = 1 });
-        //_repository.Add(new WoodPellet { Brand = "BrandE", Price = 139.95m, Quantity = 5 });
+        //_repository.Add(new WoodPellet { Brand = "BrandA", Price = 99.95m, Quality = 3 });
+        //_repository.Add(new WoodPellet { Brand = "BrandB", Price = 129.95m, Quality = 2 });
+        //_repository.Add(new WoodPellet { Brand = "BrandC", Price = 99.95m, Quality = 4 });
+        //_repository.Add(new WoodPellet { Brand = "BrandD", Price = 119.95m, Quality = 1 });
+        //_repository.Add(new WoodPellet { Brand = "BrandE", Price = 139.95m, Quality = 5 });
     }
 
     // GET: api/<WoodPelletController>

@@ -10,7 +10,7 @@ public class WoodPelletRepositoryTest
             Id = 1,
             Brand = "TestBrand",
             Price = 10.0m,
-            Quantity = 3
+            Quality = 3
         };
     }
 

@@ -14,7 +14,7 @@ public class WoodPelletTest
             Id = 1,
             Brand = "TestBrand",
             Price = 10.0m,
-            Quantity = 3
+            Quality = 3
         };
     }
 
@@ -107,53 +107,53 @@ public class WoodPelletTest
 
 
     /// <summary>
-    /// Tests that ValidateQuantity throws an ArgumentException when Quantity is out of range.
+    /// Tests that ValidateQuality throws an ArgumentException when Quality is out of range.
     /// </summary>
-    [TestMethod("Validate Quantity")]
+    [TestMethod("Validate Quality")]
     [ExpectedException(typeof(ArgumentException))]
-    public void ValidateQuantity_ShouldThrowException_WhenQuantityIsOutOfRange()
+    public void ValidateQuality_ShouldThrowException_WhenQualityIsOutOfRange()
     {
         // Arrange
         var woodPellet = CreateValidWoodPellet();
-        woodPellet.Quantity = 0;
+        woodPellet.Quality = 0;
 
         // Act
-        woodPellet.ValidateQuantity();
+        woodPellet.ValidateQuality();
 
         // Assert is handled by ExpectedException
     }
 
     /// <summary>
-    /// Tests the border values for ValidateQuantity within range.
+    /// Tests the border values for ValidateQuality within range.
     /// </summary>
     [DataTestMethod]
     [DataRow(1)]
     [DataRow(5)]
-    public void ValidateQuantity_ShouldNotThrowException_WhenQuantityIsWithinRange(int quantity)
+    public void ValidateQuality_ShouldNotThrowException_WhenQualityIsWithinRange(int Quality)
     {
         // Arrange
         var woodPellet = CreateValidWoodPellet();
-        woodPellet.Quantity = quantity;
+        woodPellet.Quality = Quality;
 
         // Act & Assert
-        woodPellet.ValidateQuantity();
+        woodPellet.ValidateQuality();
     }
 
     /// <summary>
-    /// Tests the border values for ValidateQuantity outside range.
+    /// Tests the border values for ValidateQuality outside range.
     /// </summary>
     [DataTestMethod]
     [DataRow(0)]
     [DataRow(6)]
     [ExpectedException(typeof(ArgumentException))]
-    public void ValidateQuantity_ShouldThrowException_WhenQuantityIsOutsideRange(int quantity)
+    public void ValidateQuality_ShouldThrowException_WhenQualityIsOutsideRange(int Quality)
     {
         // Arrange
         var woodPellet = CreateValidWoodPellet();
-        woodPellet.Quantity = quantity;
+        woodPellet.Quality = Quality;
 
         // Act
-        woodPellet.ValidateQuantity();
+        woodPellet.ValidateQuality();
 
         // Assert is handled by ExpectedException
     }
@@ -201,7 +201,7 @@ public class WoodPelletTest
     {
         // Arrange
         var woodPellet = CreateValidWoodPellet();
-        var expectedHashCode = HashCode.Combine(woodPellet.Id, woodPellet.Brand, woodPellet.Price, woodPellet.Quantity);
+        var expectedHashCode = HashCode.Combine(woodPellet.Id, woodPellet.Brand, woodPellet.Price, woodPellet.Quality);
 
         // Act
         var result = woodPellet.GetHashCode();

@@ -1,7 +1,7 @@
 ﻿namespace WoodPelletsLib;
 
 /// <summary>
-/// Represents a wood pellet with properties for Id, Brand, Price, and Quantity.
+/// Represents a wood pellet with properties for Id, Brand, Price, and Quality.
 /// </summary>
 public class WoodPellet
 {
@@ -21,9 +21,9 @@ public class WoodPellet
     public decimal Price { get; set; }
 
     /// <summary>
-    /// Gets or sets the quantity of the wood pellet.
+    /// Gets or sets the Quality of the wood pellet.
     /// </summary>
-    public int Quantity { get; set; }
+    public int Quality { get; set; }
 
     /// <summary>
     /// Validates all properties of the wood pellet.
@@ -34,7 +34,7 @@ public class WoodPellet
         ValidateId();
         ValidateBrand();
         ValidatePrice();
-        ValidateQuantity();
+        ValidateQuality();
     }
 
     /// <summary>
@@ -79,14 +79,14 @@ public class WoodPellet
     }
 
     /// <summary>
-    /// Validates the Quantity property.
+    /// Validates the Quality property.
     /// </summary>
-    /// <exception cref="ArgumentException">Thrown when Quantity is not between 1 and 5.</exception>
-    public void ValidateQuantity()
+    /// <exception cref="ArgumentException">Thrown when Quality is not between 1 and 5.</exception>
+    public void ValidateQuality()
     {
-        if (Quantity < 1 || Quantity > 5)
+        if (Quality < 1 || Quality > 5)
         {
-            throw new ArgumentException("Quantity must be between 1 and 5.");
+            throw new ArgumentException("Quality must be between 1 and 5.");
         }
     }
 
@@ -96,7 +96,7 @@ public class WoodPellet
     /// <returns>A string that represents the wood pellet.</returns>
     public override string ToString()
     {
-        return $"WoodPellet [Id={Id}, Brand={Brand}, Price={Price}, Quantity={Quantity}]";
+        return $"WoodPellet [Id={Id}, Brand={Brand}, Price={Price}, Quality={Quality}]";
     }
 
     /// <summary>
@@ -111,7 +111,7 @@ public class WoodPellet
             return Id == other.Id &&
                    Brand == other.Brand &&
                    Price == other.Price &&
-                   Quantity == other.Quantity;
+                   Quality == other.Quality;
         }
         return false;
     }
@@ -122,6 +122,6 @@ public class WoodPellet
     /// <returns>A hash code for the current object.</returns>
     public override int GetHashCode()
     {
-        return HashCode.Combine(Id, Brand, Price, Quantity);
+        return HashCode.Combine(Id, Brand, Price, Quality);
     }
 }

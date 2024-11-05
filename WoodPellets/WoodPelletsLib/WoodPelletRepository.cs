@@ -53,7 +53,7 @@ public class WoodPelletRepository
         woodPellet.Validate();
         existing.Brand = woodPellet.Brand;
         existing.Price = woodPellet.Price;
-        existing.Quantity = woodPellet.Quantity;
+        existing.Quality = woodPellet.Quality;
         return existing;
     }
 
